@@ -1,7 +1,7 @@
-{
+
+({
   "username": "postgres",
   "password": "docker",
-
   "name": "default",
   "type": "postgres",
   "host": "localhost",
@@ -16,4 +16,4 @@
   "cli": {
     "migrationsDir": "./src/database/migrations"
   }
-}
+})
