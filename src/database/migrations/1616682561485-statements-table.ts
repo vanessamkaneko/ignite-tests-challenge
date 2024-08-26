@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class accountsTable1616682561481 implements MigrationInterface {
+export class statementsTable1616682561485 implements MigrationInterface {
 
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(new Table({
@@ -10,6 +10,11 @@ export class accountsTable1616682561481 implements MigrationInterface {
           name: 'id',
           type: 'uuid',
           isPrimary: true,
+        },
+        {
+          name: 'user_dest',
+          type: 'varchar',
+          isNullable: true
         },
         {
           name: 'user_id',
@@ -28,7 +33,7 @@ export class accountsTable1616682561481 implements MigrationInterface {
         {
           name: 'type',
           type: 'enum',
-          enum: ['deposit', 'withdraw']
+          enum: ['deposit', 'withdraw', 'tranfers']
         },
         {
           name: 'created_at',

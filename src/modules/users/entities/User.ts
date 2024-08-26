@@ -14,23 +14,23 @@ export class User {
   @PrimaryGeneratedColumn('uuid')
   id?: string;
 
-  @Column()
-  name: string;
+  @Column({ type: 'varchar', nullable: true })
+  name: string | undefined;;
 
-  @Column()
-  email: string;
+  @Column({ type: 'varchar', nullable: true })
+  email: string | undefined;;
 
-  @Column()
-  password: string;
+  @Column({ type: 'varchar', nullable: true })
+  password: string | undefined;
 
   @OneToMany(() => Statement, statement => statement.user)
   statement: Statement[];
 
   @CreateDateColumn()
-  created_at: Date;
+  created_at: Date | undefined;;
 
   @CreateDateColumn()
-  updated_at: Date;
+  updated_at: Date | undefined;;
 
   constructor() {
     if(!this.id) {

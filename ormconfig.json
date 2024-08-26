@@ -1,5 +1,5 @@
 
-({
+{
   "username": "postgres",
   "password": "docker",
   "name": "default",
@@ -16,4 +16,4 @@
   "cli": {
     "migrationsDir": "./src/database/migrations"
   }
-})
+}

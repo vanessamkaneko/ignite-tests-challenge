@@ -13,12 +13,16 @@ import { User } from '../../users/entities/User';
 enum OperationType {
   DEPOSIT = 'deposit',
   WITHDRAW = 'withdraw',
+  TRANSFERS = 'transfers'
 }
 
 @Entity('statements')
 export class Statement {
   @PrimaryGeneratedColumn('uuid')
   id?: string;
+
+  @Column({ type: 'varchar', default: null })
+  user_dest: string
 
   @Column('uuid')
   user_id: string;
@@ -27,11 +31,11 @@ export class Statement {
   @JoinColumn({ name: 'user_id' })
   user: User;
 
-  @Column()
-  description: string;
+  @Column({ type: 'varchar', nullable: true })
+  description: string | undefined;
 
   @Column('decimal', { precision: 5, scale: 2 })
-  amount: number;
+  amount: number | undefined;
 
   @Column({ type: 'enum', enum: OperationType })
   type: OperationType;
